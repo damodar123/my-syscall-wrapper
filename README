@@ -1,0 +1,17 @@
+This is a simple toy code that gives a implementation brief of our wrapper.
+
+Build and install:
+	1) Compile the user-applicatio.c 
+		execute "gcc user-application.c -o user-application" command on linux terminal.
+
+	2) compile the toy-wrapper and create a shared library out of it.
+		execute "gcc -fPIC -shared  -o toy-wrapper.so toy-wrapper.c -ldl"
+
+	3) Set the LD_PRELOAD to the path to our shared library.
+		execute "export LD_PRELOAD=$PWD/toy-wrapper.so"
+
+Test the wrapper:
+	run the user application "./user-application" to confirm the effect of the wrapper.
+
+Diasble the wrapper:
+	"unset LD_PRELOAD" to disable the effect of the wrapper.
